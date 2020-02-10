@@ -17,12 +17,11 @@ public class BusServiceBean implements BusServiceFacade {
 
 	@Override
 	public ResponseTO findCity(RequestTO requestTO) {
-		System.out.println("BusServiceBean ------- >");
 		ResponseTO response = null;
 		try {
 			response = climaTempoCitiesService.execute(requestTO);
 		} catch (SdkExceptions e) {
-			System.out.println("kkkkkkkk");
+			e.getMessage();
 			e.printStackTrace();
 		}
 		return response;

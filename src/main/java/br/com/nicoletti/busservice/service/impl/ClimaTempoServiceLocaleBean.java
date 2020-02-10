@@ -52,7 +52,7 @@ public class ClimaTempoServiceLocaleBean implements ClimaTempoLocaleService {
 			Object object = new JSONTokener(jsonString).nextValue();
 			if (object instanceof JSONArray) {
 				JSONArray jsonArray = new JSONArray(jsonString);
-				if (!jsonArray.isEmpty()) {
+				if (jsonArray.length() > 0) {
 					response.setStatus(true);
 					List<ClimaTempoCityTO> cities = mapper.readValue(jsonString,
 							new TypeReference<List<ClimaTempoCityTO>>() {
