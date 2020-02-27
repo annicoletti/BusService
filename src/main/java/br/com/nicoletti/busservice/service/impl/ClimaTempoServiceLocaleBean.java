@@ -1,5 +1,6 @@
 package br.com.nicoletti.busservice.service.impl;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -38,9 +39,10 @@ public class ClimaTempoServiceLocaleBean implements ClimaTempoLocaleService {
 			String server = ClimaTempoConstants.SERVER;
 			String path = ClimaTempoConstants.Locale.PATH;
 
-			Set<String> keys = Set.of(ClimaTempoConstants.Locale.REQUEST_QUERY_CITY_NAME,
-					ClimaTempoConstants.Locale.REQUEST_QUERY_STATE_NAME,
-					ClimaTempoConstants.Locale.REQUEST_QUERY_API_TOKEN);
+			Set<String> keys = new HashSet<String>();
+			keys.add(ClimaTempoConstants.Locale.REQUEST_QUERY_CITY_NAME);
+			keys.add(ClimaTempoConstants.Locale.REQUEST_QUERY_STATE_NAME);
+			keys.add(ClimaTempoConstants.Locale.REQUEST_QUERY_API_TOKEN);
 
 			Map<String, String> parameter = rest.extractedParameter(keys, to.getParams());
 			parameter.put(ClimaTempoConstants.Locale.REQUEST_QUERY_API_TOKEN, to.getToken());
@@ -71,7 +73,8 @@ public class ClimaTempoServiceLocaleBean implements ClimaTempoLocaleService {
 				if (jsonObject.has(ClimaTempoConstants.Locale.RESPONSE_FAILED_ERROR)) {
 					ClimatempoBadRequestTO climatempoBadRequestTO = new ClimatempoBadRequestTO(false);
 					climatempoBadRequestTO.setError(true);
-					climatempoBadRequestTO.setDetail(jsonObject.getString(ClimaTempoConstants.Locale.RESPONSE_FAILED_DETAIL));
+					climatempoBadRequestTO
+							.setDetail(jsonObject.getString(ClimaTempoConstants.Locale.RESPONSE_FAILED_DETAIL));
 					return climatempoBadRequestTO;
 				}
 			}
