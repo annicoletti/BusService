@@ -9,10 +9,10 @@
 		<version>2.2.4.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	
+
 	<groupId>br.com.nicoletti</groupId>
 	<artifactId>BusService</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>war</packaging>
 	<name>BusService</name>
 	<description>Bus Project</description>
@@ -24,7 +24,7 @@
 	<repositories>
 		<repository>
 			<id>myMavenRepoRead</id>
-			<url>${myMavenRepoReadUrl}</url>
+			<url>https://mymavenrepo.com/repo/kNe9RjKvjIeqm64uWBrU/</url>
 		</repository>
 	</repositories>
 
@@ -33,7 +33,7 @@
 		<dependency>
 			<groupId>br.com.cpqd.avm</groupId>
 			<artifactId>sdk</artifactId>
-			<version>0.0.7</version>
+			<version>0.0.8</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
 		<dependency>
